@@ -1,0 +1,78 @@
+---
+title: "Cases Produtivos em R"
+subtitle: "Git + Github + RStudio"
+author: "<img src = 'https://d33wubrfki0l68.cloudfront.net/9b0699f18268059bdd2e5c21538a29eade7cbd2b/67e5c/img/logo/cursor1-5.png' width = '30%'>"
+date: "`r paste(lubridate::month(Sys.Date(), label = TRUE, abbr = FALSE, locale = 'pt_BR.UTF-8'), 'de', lubridate::year(Sys.Date()))`"
+output:
+  xaringan::moon_reader:
+    css: ["default", "default-fonts", "css/custom-intro.css"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "4:3"
+---
+
+```{r setup, include=FALSE}
+`%>%` <- magrittr::`%>%`
+
+colorido <- function(x, cor = "#6495ed") {
+  glue::glue(
+    '<span style="color:{cor}; font-weight: bold;">{x}</span>'
+  ) %>% 
+    htmltools::HTML()
+}
+
+options(width = 85)
+```
+
+# Caminhos de hoje
+
+.pull-left[
+
+## Configurações do Git+Github
+
+1) Instalar o programa Git
+
+2) Se estiver no windows, colocar o Git no PATH
+
+3) Configurar o user.name e o user.email
+
+4) Criar uma conta gratuita no Github.com
+
+5) Criar um TOKEN e colocar no .Renviron
+
+]
+
+.pull-right[
+
+## Criando um projeto com Git no RStudio
+
+1) Criar um projeto
+
+2) Habilitar Git
+
+3) Habilitar Github
+
+4) Habilitar o Github Pages
+
+5) Criar um README.md
+
+6) Fazer um commit
+
+7) Fazer um push
+
+]
+
+---
+
+## Configurações do Git+Github
+
+### 1) Instalar o programa Git
+
+- [Baixar e instalar (next, next, next...)](https://git-scm.com/downloads)
+
+### 2) Colocar o Git no PATH
+
+- Procurar por "Variáveis de Ambiente" ou "Environment Variables"
