@@ -68,6 +68,71 @@ class: center, middle, inverse, title-slide
 ### 1) Instalar o programa Git
 
 - [Baixar e instalar (next, next, next...)](https://git-scm.com/downloads)
+
+### 2) Colocar o Git no PATH
+
+- Clique com o botão direito do mouse em Meu computador
+- Clique em Configurações avançadas do sistema
+- Clique em `Variáveis de ambiente`
+- Em seguida, em `Variáveis do sistema`, procure a variável de caminho e clique em editar
+- Adicione o caminho para o bin e o cmd do git no final da string, assim (copie e cole!):
+
+&gt; ;C:\Program Files\Git\bin\git.exe;C:\Program Files\Git\cmd
+
+.footnote[OBS: as vezes no seu computador não é o C:/. Pode ser K:/, D:/ ou outra letra!]
+
+---
+
+## Configurar o `user.name` e o `user.email`
+
+Abra o terminal e escreva:
+
+
+
+```bash
+$ git config --global user.name "Athos Damiani"
+```
+
+e depois
+
+
+```bash
+$ git config --global user.email athos.damiani@gmail.com
+```
+
+
+Se preferir fazer no RStudio...
+
+
+```r
+usethis::use_git_config(
+  user.name = "Athos Damiani",
+  user.email = "athos.damiani@gmail.com"
+)
+```
+
+PS: tem que ter o pacote `usethis` instalado! Rode `install.packages("usethis")` para instalar.
+
+
+---
+
+## Criar uma conta gratuita no Github.com
+
+- Entre no [github.com](https://github.com) e se cadastre. Escolha um e-mail que vc use!
+
+## Criar um TOKEN e colocar no .Renviron
+
+- rode no R `usethis::create_github_token()`
+- No site do github clique no botao `Generate token`.
+- Copie o código que aparece na barrinha verde.
+- rode no R `usethis::edit_r_environ()`.
+- Escreva `GITHUB_PAT=&lt;codigo que está no seu ctrl+c&gt;`
+
+
+```bash
+GITHUB_PAT=b41f0e1cc09b24dc1e9eb461867ed6c7909bc1b6
+```
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
