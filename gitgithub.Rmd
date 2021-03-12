@@ -33,7 +33,7 @@ options(width = 85)
 
 ## Configurações do Git+Github
 
-1) Instalar o programa Git
+1) [Instalar o programa Git](https://git-scm.com/downloads)
 
 2) Se estiver no windows, colocar o Git no PATH
 
@@ -137,4 +137,55 @@ GITHUB_PAT=b41f0e1cc09b24dc1e9eb461867ed6c7909bc1b6
 Parabéns! O Git e o Github estão prontos!
 
 ---
+
+## Criando um projeto com Git no RStudio
+
+- rode `usethis::create_project("nomeDoProjeto")`
+- rode `usethis::use_git()` e vá dizendo "SIM" para as perguntas.
+- rode `usethis::use_github()` e vá dizendo "SIM" para as perguntas.
+- (opcional) rode `usethis::use_readme_rmd()` e edite se precisar. Depois aperte `CTRL+SHIFT+K`.
+
+## Commit e Push
+
+- Na abinha `git` selecione os arquivos que gostaria de aceitar como oficiais.
+- Escreva uma mensagem descrevendo as mudanças feitas nos arquivos.
+- Dê `commit`.
+- Aparte `push` (setinha verde para cima)
+- Olhe o seu github!
+
+---
+
+## Github Pages
+
+- Vá em `Settings` do seu repositório (lá no site do github)
+- Scrolle para baixo até achar a seção do Github Pages
+- Habilite o Github Pages escolhendo uma `source`. Geralmente só vai ter a opção `master`. Clique em `Save`.
+- Um link será mostrado na tela. Clique nele.
+- Agora você pode pedir para mostrar os arquivos HTML que estão no seu repositório.
+
+Exemplo:
+
+```{bash, eval = FALSE}
+https://athospd.github.io/mestrado/index.html
+```
+
+No exemplo, o arquivo `index.html` está na pasta principal do repositório.
+
+---
+
+## Tópicos extras importantes
+
+- Clonando um repositório
+- Fazendo um Pull
+- Fazendo um Fork (avançado)
+- Fazendo um pull-request (avançado)
+
+---
+
+## Referências
+
+- [Zen do R](https://curso-r.github.io/zen-do-r/git-github.html)
+- [Git + RStudio](https://beatrizmilz.github.io/RLadies-Git-RStudio-2019)
+
+
 
