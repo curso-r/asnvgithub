@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Cases Produtivos em R</title>
+    <title>Git e Github</title>
     <meta charset="utf-8" />
     <meta name="author" content="" />
     <script src="libs/header-attrs-2.13/header-attrs.js"></script>
-    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
-    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/custom-intro.css" type="text/css" />
+    <link rel="stylesheet" href="css/xaringan-themer.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Cases Produtivos em R
-## Git + Github + RStudio
+# Git e Github
 ### <img src = 'https://jedis.asn.rocks/pluginfile.php/1/theme_edumy/headerlogo1/1604959123/ASN_Logo_Site_Vertical%20-%20Copy1.png' width = '20%'>
 ### Julho de 2022
 
@@ -23,47 +20,52 @@ class: center, middle, inverse, title-slide
 
 
 
-# Caminhos de hoje
+&lt;!-- class: middle, center, inverse --&gt;
+&lt;!-- # Git --&gt;
+---
+# Git
 
-.pull-left[
+- Git é um **sistema de versionamento**, criado por Linus Torvalds, autor do Linux.
 
-## Configurações do Git+Github
+- É capaz de guardar o histórico de alterações de todos os arquivos dentro de uma pasta, que chamamos de repositório.
 
-1) [Instalar o programa Git](https://git-scm.com/downloads)
+- Funciona como o "*Track changes*" do word, mas muito melhor.
 
-2) Se estiver no windows, colocar o Git no PATH
+- Torna-se importante à medida que seu trabalho é __colaborativo__.
 
-3) Configurar o user.name e o user.email
+- **Git é um software que você instala no computador.**
 
-4) Criar uma conta gratuita no Github.com
+&lt;br&gt;
 
-5) Criar um TOKEN e colocar no .Renviron
-
-]
-
-.pull-right[
-
-## Criando um projeto com Git no RStudio
-
-1) Criar um projeto
-
-2) Habilitar Git
-
-3) Habilitar Github
-
-4) Habilitar o Github Pages
-
-5) Criar um README.md
-
-6) Fazer um commit
-
-7) Fazer um push
-
-]
+&lt;img src="img/02-organizacao-projeto/git.png" width="30%" style="display: block; margin: auto;" /&gt;
 
 ---
+# GitHub
 
-## Configurações do Git+Github
+- GitHub é um site onde você coloca e compartilha repositórios Git.
+
+- Utilizado por milhões de pessoas em projetos de código aberto ou fechado.
+
+- Útil para colaborar com outros programadores em projetos de ciência de dados.
+
+- Existem alternativas, como [GitLab](https://about.gitlab.com/) e [BitBucket](https://bitbucket.org/product).
+
+- **GitHub é um site que você acessa na internet.**
+
+&lt;br&gt;
+
+&lt;img src="img/02-organizacao-projeto/github.png" width="40%" style="display: block; margin: auto;" /&gt;
+
+
+---
+# Fluxo de trabalho
+
+O diagrama abaixo exemplifica o fluxo de trabalho de um projeto com versionamento.
+
+&lt;img src="img/02-organizacao-projeto/fluxo_github_rstudio.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+# Configurações do Git
 
 ### 1) Instalar o programa Git
 
@@ -83,6 +85,27 @@ class: center, middle, inverse, title-slide
 
 ---
 
+# Configurações do Git
+
+### 1) Instalar o programa Git
+
+- [Baixar e instalar (next, next, next...)](https://git-scm.com/downloads)
+
+### 2) Colocar o Git no PATH
+
+- Clique com o botão direito do mouse em Meu computador
+- Clique em Configurações avançadas do sistema
+- Clique em `Variáveis de ambiente`
+- Em seguida, em `Variáveis do sistema`, procure a variável de caminho e clique em editar
+- Adicione o caminho para o bin e o cmd do git no final da string, assim (copie e cole!):
+
+&gt; ;C:\Program Files\Git\bin\git.exe;C:\Program Files\Git\cmd
+
+.footnote[OBS: as vezes no seu computador não é o C:/. Pode ser K:/, D:/ ou outra letra!]
+
+---
+# Configurações do Git
+
 ## Configurar o `user.name` e o `user.email`
 
 Abra o terminal e escreva:
@@ -100,104 +123,132 @@ e depois
 $ git config --global user.email athos.damiani@gmail.com
 ```
 
-
-Se preferir fazer no RStudio...
-
-
-```r
-usethis::use_git_config(
-  user.name = "Athos Damiani",
-  user.email = "athos.damiani@gmail.com"
-)
-```
-
-PS: tem que ter o pacote `usethis` instalado! Rode `install.packages("usethis")` para instalar.
-
-
 ---
+# Configurações do Github
 
 ## Criar uma conta gratuita no Github.com
 
 - Entre no [github.com](https://github.com) e se cadastre. Escolha um e-mail que vc use!
 
-## Criar um TOKEN e colocar no .Renviron
-
-- rode no R `usethis::create_github_token()`
-- No site do github clique no botao `Generate token`.
-- Copie o código que aparece na barrinha verde.
-- rode no R `usethis::edit_r_environ()`.
-- Escreva `GITHUB_PAT=&lt;codigo que está no seu ctrl+c&gt;`
-
-Exemplo:
-
-```bash
-GITHUB_PAT=b41f0e1cc09b24dc1e9eb461867ed6c7909bc1b6
-```
-
-Parabéns! O Git e o Github estão prontos!
-
 ---
 
-## Criando um projeto com Git no RStudio
+# Configuração do SSH
 
-- rode `usethis::create_project("nomeDoProjeto")`
-- rode `usethis::use_git()` e vá dizendo "SIM" para as perguntas.
-- rode `usethis::use_github()` e vá dizendo "SIM" para as perguntas.
-- (opcional) rode `usethis::use_readme_rmd()` e edite se precisar. Depois aperte `CTRL+SHIFT+K`.
+[Seguir os passos desse tutorial](https://docs.github.com/pt/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
-## Commit e Push
+É a parte mais chata e difícil, mas só precisaremos fazer uma vez!
 
-- Na abinha `git` selecione os arquivos que gostaria de aceitar como oficiais.
-- Escreva uma mensagem descrevendo as mudanças feitas nos arquivos.
-- Dê `commit`.
-- Aparte `push` (setinha verde para cima)
-- Olhe o seu github!
+SSH serve para você se conectar com o github sem precisar ficar colocando senha toda vez.
 
 ---
+# Passo 1: crie seu projeto com git (sua pasta, seu "repo")
 
-## Github Pages
-
-- Vá em `Settings` do seu repositório (lá no site do github)
-- Scrolle para baixo até achar a seção do Github Pages
-- Habilite o Github Pages escolhendo uma `source`. Geralmente só vai ter a opção `master`. Clique em `Save`.
-- Um link será mostrado na tela. Clique nele.
-- Agora você pode pedir para mostrar os arquivos HTML que estão no seu repositório.
-
-Exemplo:
+- Crie uma pasta e entre nela no terminal:
 
 
 ```bash
-https://athospd.github.io/mestrado/index.html
+mkdir meu_projeto
+cd meu_projeto
 ```
 
-No exemplo, o arquivo `index.html` está na pasta principal do repositório.
+- Inicie o git nesta pasta
+
+
+```bash
+git init
+```
+
+- Crie um arquivo qualquer e salve (por exemplo um .txt ou um .py).
+
+- Veja o que aparece em status
+
+
+```bash
+git status
+```
+
 
 ---
+# Passo 2: dê um Commit
 
-## Tópicos extras importantes
+"Dar um commit" significa que você irá oficializar mudanças nos seus códigos ou arquivos.
 
-- Clonando um repositório
-- Fazendo um Pull
-- Fazendo um Fork (avançado)
-- Fazendo um pull-request (avançado)
+Isso se faz "adicionando arquivos no seu commit":
+
+
+```bash
+git add nome_do_arquivo.txt
+```
+
+
+```bash
+git commit -m "inclui um arquivo nome_do_arquivo.txt sobre a tarefa Y"
+```
+
 
 ---
+# Passo 3: Se conectando ao Github
 
-## Referências
+- Vá ao [Github](https://github.com/)
+- Faça login
+- Crie um novo repositório. Convenciona-se usar o mesmo nome tanto para o repo do github quando da pasta do projeto.
+- Agora siga as instruções para configurar o "remote"
 
-- [Zen do R](https://curso-r.github.io/zen-do-r/git-github.html)
-- [Git + RStudio](https://beatrizmilz.github.io/RLadies-Git-RStudio-2019)
+
+```bash
+git remote add git@github.com:username/nome_do_repo
+```
+
+
+```bash
+git push
+```
+
+---
+# Pull: Atualize seus arquivos locais
+
+Se o repo do github tiver arquivos novos ou com mudanças, você irá precisar atualizar o repo local.
+Ao fazermos um "pull", essa atualização é feita.
+
+
+```bash
+git pull
+```
 
 
 
+---
+# Clone: Baixando um repositório existente
+
+Se você tiver um repo no github e quiser começar a mexer nele, você pode cloná-lo
+
+
+```bash
+git clone git@github.com:username/nome_do_repo
+```
+
+E aí vá até a pasta dele
+
+
+```bash
+cd nome_do_repo
+```
+
+
+---
+# Referências
+
+- [Zen do R](https://curso-r.github.io/zen-do-r/), livro em desenvolvimento pela Curso-R.
+
+- [Apresentação da Bea Milz](https://beatrizmilz.github.io/2022-curso-de-verao-ime-usp-relatorios/slides/#git-e-github).
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
+"ratio": "16:9",
 "highlightStyle": "github",
 "highlightLines": true,
-"countIncrementalSlides": false,
-"ratio": "4:3"
+"countIncrementalSlides": false
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));

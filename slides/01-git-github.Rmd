@@ -1,0 +1,235 @@
+---
+title: "Git e Github"
+author: "<img src = 'https://jedis.asn.rocks/pluginfile.php/1/theme_edumy/headerlogo1/1604959123/ASN_Logo_Site_Vertical%20-%20Copy1.png' width = '20%'>"
+date: "`r paste(lubridate::month(Sys.Date(), label = TRUE, abbr = FALSE, locale = 'pt_BR.UTF-8'), 'de', lubridate::year(Sys.Date()))`"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: "css/xaringan-themer.css"
+    nature:
+      ratio: '16:9'
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+`%>%` <- magrittr::`%>%`
+options(width = 85)
+```
+
+<!-- class: middle, center, inverse -->
+<!-- # Git -->
+---
+# Git
+
+- Git é um **sistema de versionamento**, criado por Linus Torvalds, autor do Linux.
+
+- É capaz de guardar o histórico de alterações de todos os arquivos dentro de uma pasta, que chamamos de repositório.
+
+- Funciona como o "*Track changes*" do word, mas muito melhor.
+
+- Torna-se importante à medida que seu trabalho é __colaborativo__.
+
+- **Git é um software que você instala no computador.**
+
+<br>
+
+```{r echo=FALSE, out.width="30%", fig.align='center'}
+knitr::include_graphics("img/02-organizacao-projeto/git.png")
+```
+
+---
+# GitHub
+
+- GitHub é um site onde você coloca e compartilha repositórios Git.
+
+- Utilizado por milhões de pessoas em projetos de código aberto ou fechado.
+
+- Útil para colaborar com outros programadores em projetos de ciência de dados.
+
+- Existem alternativas, como [GitLab](https://about.gitlab.com/) e [BitBucket](https://bitbucket.org/product).
+
+- **GitHub é um site que você acessa na internet.**
+
+<br>
+
+```{r echo=FALSE, out.width="40%", fig.align='center'}
+knitr::include_graphics("img/02-organizacao-projeto/github.png")
+```
+
+
+---
+# Fluxo de trabalho
+
+O diagrama abaixo exemplifica o fluxo de trabalho de um projeto com versionamento.
+
+```{r echo=FALSE, fig.align='center', out.width="70%"}
+knitr::include_graphics("img/02-organizacao-projeto/fluxo_github_rstudio.png")
+```
+
+---
+# Configurações do Git
+
+### 1) Instalar o programa Git
+
+- [Baixar e instalar (next, next, next...)](https://git-scm.com/downloads)
+
+### 2) Colocar o Git no PATH
+
+- Clique com o botão direito do mouse em Meu computador
+- Clique em Configurações avançadas do sistema
+- Clique em `Variáveis de ambiente`
+- Em seguida, em `Variáveis do sistema`, procure a variável de caminho e clique em editar
+- Adicione o caminho para o bin e o cmd do git no final da string, assim (copie e cole!):
+
+> ;C:\Program Files\Git\bin\git.exe;C:\Program Files\Git\cmd
+
+.footnote[OBS: as vezes no seu computador não é o C:/. Pode ser K:/, D:/ ou outra letra!]
+
+---
+
+# Configurações do Git
+
+### 1) Instalar o programa Git
+
+- [Baixar e instalar (next, next, next...)](https://git-scm.com/downloads)
+
+### 2) Colocar o Git no PATH
+
+- Clique com o botão direito do mouse em Meu computador
+- Clique em Configurações avançadas do sistema
+- Clique em `Variáveis de ambiente`
+- Em seguida, em `Variáveis do sistema`, procure a variável de caminho e clique em editar
+- Adicione o caminho para o bin e o cmd do git no final da string, assim (copie e cole!):
+
+> ;C:\Program Files\Git\bin\git.exe;C:\Program Files\Git\cmd
+
+.footnote[OBS: as vezes no seu computador não é o C:/. Pode ser K:/, D:/ ou outra letra!]
+
+---
+# Configurações do Git
+
+## Configurar o `user.name` e o `user.email`
+
+Abra o terminal e escreva:
+
+
+```{bash, eval=FALSE}
+$ git config --global user.name "Athos Damiani"
+```
+
+e depois
+
+```{bash, eval=FALSE}
+$ git config --global user.email athos.damiani@gmail.com
+```
+
+---
+# Configurações do Github
+
+## Criar uma conta gratuita no Github.com
+
+- Entre no [github.com](https://github.com) e se cadastre. Escolha um e-mail que vc use!
+
+---
+
+# Configuração do SSH
+
+[Seguir os passos desse tutorial](https://docs.github.com/pt/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+
+É a parte mais chata e difícil, mas só precisaremos fazer uma vez!
+
+SSH serve para você se conectar com o github sem precisar ficar colocando senha toda vez.
+
+---
+# Passo 1: crie seu projeto com git (sua pasta, seu "repo")
+
+- Crie uma pasta e entre nela no terminal:
+
+```{bash, eval = FALSE}
+mkdir meu_projeto
+cd meu_projeto
+```
+
+- Inicie o git nesta pasta
+
+```{bash, eval = FALSE}
+git init
+```
+
+- Crie um arquivo qualquer e salve (por exemplo um .txt ou um .py).
+
+- Veja o que aparece em status
+
+```{bash, eval = FALSE}
+git status
+```
+
+
+---
+# Passo 2: dê um Commit
+
+"Dar um commit" significa que você irá oficializar mudanças nos seus códigos ou arquivos.
+
+Isso se faz "adicionando arquivos no seu commit":
+
+```{bash, eval = FALSE}
+git add nome_do_arquivo.txt
+```
+
+```{bash, eval = FALSE}
+git commit -m "inclui um arquivo nome_do_arquivo.txt sobre a tarefa Y"
+```
+
+
+---
+# Passo 3: Se conectando ao Github
+
+- Vá ao [Github](https://github.com/)
+- Faça login
+- Crie um novo repositório. Convenciona-se usar o mesmo nome tanto para o repo do github quando da pasta do projeto.
+- Agora siga as instruções para configurar o "remote"
+
+```{bash, eval = FALSE}
+git remote add git@github.com:username/nome_do_repo
+```
+
+```{bash, eval = FALSE}
+git push
+```
+
+---
+# Pull: Atualize seus arquivos locais
+
+Se o repo do github tiver arquivos novos ou com mudanças, você irá precisar atualizar o repo local.
+Ao fazermos um "pull", essa atualização é feita.
+
+```{bash, eval = FALSE}
+git pull
+```
+
+
+
+---
+# Clone: Baixando um repositório existente
+
+Se você tiver um repo no github e quiser começar a mexer nele, você pode cloná-lo
+
+```{bash, eval = FALSE}
+git clone git@github.com:username/nome_do_repo
+```
+
+E aí vá até a pasta dele
+
+```{bash, eval = FALSE}
+cd nome_do_repo
+```
+
+
+---
+# Referências
+
+- [Zen do R](https://curso-r.github.io/zen-do-r/), livro em desenvolvimento pela Curso-R.
+
+- [Apresentação da Bea Milz](https://beatrizmilz.github.io/2022-curso-de-verao-ime-usp-relatorios/slides/#git-e-github).
